@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* ================= PAGE ================= */
+.page {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ================= TITLE ================= */
+.title {
+  font-size: 3rem;
+  margin-bottom: 35px;
+  animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= BUTTONS ================= */
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.btn {
+  min-width: 140px;
+  padding: 14px 0;
+  font-size: 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* YES */
+.yes {
+  background: #ffffff;
+  color: #ff4d6d;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.yes:hover {
+  transform: scale(1.15);
+}
+
+/* NO */
+.no {
+  background: #ff4d6d;
+  color: white;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= FLOATING HEARTS ================= */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -30px;
+  font-size: 22px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.85;
+}
+
+.hearts span:nth-child(even) {
+  font-size: 28px;
+  animation-duration: 5s;
+}
+
+.hearts span:nth-child(odd) {
+  font-size: 18px;
+  animation-duration: 7s;
+}
+
+.hearts span:nth-child(1) {
+  left: 10%;
+}
+
+.hearts span:nth-child(2) {
+  left: 20%;
+}
+
+.hearts span:nth-child(3) {
+  left: 30%;
+}
+
+.hearts span:nth-child(4) {
+  left: 40%;
+}
+
+.hearts span:nth-child(5) {
+  left: 50%;
+}
+
+.hearts span:nth-child(6) {
+  left: 60%;
+}
+
+.hearts span:nth-child(7) {
+  left: 70%;
+}
+
+.hearts span:nth-child(8) {
+  left: 80%;
+}
+
+.hearts span:nth-child(9) {
+  left: 90%;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-120vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ================= MUSIC BUTTON ================= */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  color: #ff4d6d;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ================= FINAL FRAME STAGE ================= */
+.final-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Shared frame */
+.frame {
+  position: absolute;
+  display: flex;
+  gap: 36px;
+  /* ✅ better spacing */
+  opacity: 0.32;
+  z-index: 1;
+}
+
+/* TOP */
+.frame.top {
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* BOTTOM */
+.frame.bottom {
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* LEFT */
+.frame.left {
+  left: 80px;
+  /* ✅ closer to center */
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+/* RIGHT */
+.frame.right {
+  right: 80px;
+  /* ✅ closer to center */
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+/* MEMORY IMAGES */
+.memory-img {
+  width: 190px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  animation: floatImage 10s ease-in-out infinite;
+}
+
+/* SOFT FLOAT + TILT */
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(6deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+}
+
+/* ================= CENTER QUOTE ================= */
+.quote {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.center-quote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 700px) {
+  .title {
+    font-size: 2.1rem;
+    padding: 0 12px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .btn {
+    width: 200px;
+  }
+
+  .frame.left,
+  .frame.right {
+    display: none;
+  }
+
+  .frame.top,
+  .frame.bottom {
+    gap: 20px;
+  }
+
+  .memory-img {
+    width: 130px;
+    height: 115px;
+  }
+
+  .music-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* 🖼️ IMAGE BLAST STAGE */
+.image-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 117, 140, 0.35);
+  /* soft overlay */
+}
+
+/* Limit blast image size */
+.blast-img.limited {
+  max-width: 70vw;
+  /* 👈 IMPORTANT */
+  max-height: 65vh;
+  /* 👈 IMPORTANT */
+
+  width: auto;
+  height: auto;
+
+  border-radius: 24px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+
+  animation: popIn 0.6s ease;
+}
+
+/* Subtle pop animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .blast-img.limited {
+    max-width: 85vw;
+    max-height: 55vh;
+  }
+}
